@@ -1,0 +1,7 @@
+services:
+  ifoome-notification:
+    build: .
+    networks:
+      - ifoome-network
+    ports:
+      - "8081:8081"

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ifoome-notification
+server:
+  port: ${IFOOME_NOTIFICATION_SERVER_PORT:8081}
