@@ -1,0 +1,13 @@
+services:
+  ifoome-notification:
+    build: .
+    image: ifoome-notification
+    container_name: ifoome-notification
+    networks:
+      - ifoome-network
+    ports:
+      - "8081:8081"
+
+networks:
+  ifoome-network:
+    external: true

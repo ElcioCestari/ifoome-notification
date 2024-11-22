@@ -4,9 +4,9 @@ LABEL authors="elcio"
 
 WORKDIR /app
 
-# Update package list and install Maven and OpenJDK 17
+# Update package list and install Maven and OpenJDK 21
 RUN apt-get update && \
-    apt-get install -y openjdk-17-jdk maven && \
+    apt-get install -y openjdk-21-jdk maven && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

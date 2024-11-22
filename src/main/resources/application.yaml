@@ -1,5 +1,14 @@
 spring:
   application:
     name: ifoome-notification
+  kafka:
+    consumer:
+      topic: ifoome-customer-create-send-email
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: group-id-send-email
+      auto-offset-reset: latest
+    bootstrap-servers: ${IFOOME_CUSTOMER_KAFKA_BOOTSTRAP_SERVER:broker-ifoome:9092}
+
 server:
   port: ${IFOOME_NOTIFICATION_SERVER_PORT:8081}
