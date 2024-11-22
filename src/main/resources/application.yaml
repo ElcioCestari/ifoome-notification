@@ -3,11 +3,11 @@ spring:
     name: ifoome-notification
   kafka:
     consumer:
-      topic: ifoome-customer-create-send-email
+      topic: ifoome.customers-created
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      group-id: group-id-send-email
-      auto-offset-reset: latest
+      group-id: ifoome.customers-created.send-notification-group
+      auto-offset-reset: earliest
     bootstrap-servers: ${IFOOME_CUSTOMER_KAFKA_BOOTSTRAP_SERVER:broker-ifoome:9092}
 
 server:
