@@ -8,7 +8,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       group-id: ifoome.customers-created.send-notification-group
       auto-offset-reset: earliest
-    bootstrap-servers: ${IFOOME_CUSTOMER_KAFKA_BOOTSTRAP_SERVER:broker-ifoome:9092}
+    bootstrap-servers: ${IFOOME_CUSTOMER_KAFKA_BOOTSTRAP_SERVER:localhost:29092}
 
 server:
   port: ${IFOOME_NOTIFICATION_SERVER_PORT:8081}
