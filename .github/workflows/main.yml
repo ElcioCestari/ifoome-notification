@@ -1,0 +1,18 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(1)(41ac632b-748d-4425-a35c-a0b94804a709)'
+    appType: 'webAppLinux'
+    appName: 'az-appservice-ifoome-notification'
+    package: '$(System.DefaultWorkingDirectory)/**/*.war'
