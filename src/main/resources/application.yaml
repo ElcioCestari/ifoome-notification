@@ -2,10 +2,23 @@ spring:
   application:
     name: ifoome-notification
   kafka:
+    properties:
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="${AZ_EH_IFOOME_CONSUMER_PRIMARY_CONNECTION_STRING}";
+        mechanism: PLAIN
+      security:
+        protocol: SASL_SSL
+      request:
+        timeout:
+          ms: '60000'
+      retry:
+        backoff:
+          ms: '500'
     consumer:
-      topic: ifoome.customers-created
+      topic: az-eh-kafka-ifoome
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: ifoome.customers-created.send-notification-group
       auto-offset-reset: earliest
     bootstrap-servers: ${IFOOME_CUSTOMER_KAFKA_BOOTSTRAP_SERVER:localhost:29092}
