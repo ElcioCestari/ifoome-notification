@@ -1,7 +1,7 @@
 package com.elciocestari.ifoomenotification.service;
 
-import org.springframework.stereotype.Service;
+import com.elciocestari.ifoomenotification.entity.Notification;
 
-@Service
-public class NotificationService {
+public interface NotificationService<T extends Notification> {
+    boolean send(T notification);
 }
